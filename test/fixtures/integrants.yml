@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  orchestra_id: 1
+  instrument_id: 1
+  conductor_id: 1
+
+two:
+  nome: MyString
+  orchestra_id: 1
+  instrument_id: 1
+  conductor_id: 1

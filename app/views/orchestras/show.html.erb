@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @orchestra.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @orchestra.city %>
+</p>
+
+<p>
+  <strong>Conductor:</strong>
+  <%= @search = Conductor.find(:all,:conditions => {:id => @orchestra.conductor_id})
+  			if(@search.first!=nil)
+                @search.first.name 
+            else
+            	@search=''
+            end
+    %>
+</p>
+
+<p>
+  <strong>Integrants:</strong>
+  
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Instrument</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @search = Integrant.find(:all,:conditions => {:orchestra_id => @orchestra.id})%>
+		<% if(@search.first!=nil) %>
+			<% @search.each do |element| %>
+				<tr>
+	  				<td><%= element.nome %></td>
+	  				<% @instr=Instrument.find(:all,:conditions => {:id => element.instrument_id})%>
+	  				<% if(@instr.first!=nil) %>
+	  					<td><%= @instr.first.name %></td>
+	  				<% else %>
+	  					<td> </td>
+	  				<%end%>
+	  			</tr>
+			<% end %>
+	    <% else %>
+	    	<%=@search=''%>
+	    <% end %>
+	</tbody>
+</table>
+<p></p>
+
+<%= link_to 'Edit', edit_orchestra_path(@orchestra) %> |
+<%= link_to 'Back', orchestras_path %>

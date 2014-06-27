@@ -1,0 +1,45 @@
+<h1>Listing integrants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Orchestra</th>
+      <th>Instrument</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @integrants.each do |integrant| %>
+      <tr>
+        <td><%= integrant.nome %></td>
+        <td><%= @search = Orchestra.find(:all,:conditions => {:id => integrant.orchestra_id})
+                if(@search.first!=nil)
+                  @search.first.name 
+                else
+                  @search=''
+                end
+            %>
+        </td>
+        <td><%= @search = Instrument.find(:all,:conditions => {:id => integrant.instrument_id})
+                if(@search.first!=nil)
+                  @search.first.name 
+                else
+                  @search=''
+                end
+            %>
+        </td>
+        <td><%= link_to 'Show', integrant %></td>
+        <td><%= link_to 'Edit', edit_integrant_path(integrant) %></td>
+        <td><%= link_to 'Destroy', integrant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Integrant', new_integrant_path %>

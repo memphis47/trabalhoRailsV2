@@ -1,0 +1,37 @@
+<h1>Listing conductors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Orquestra</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conductors.each do |conductor| %>
+      <tr>
+        <td><%= conductor.name %></td>
+        <td><%= conductor.age %></td>
+        <td><%= @search = Orchestra.find(:all,:conditions => {:conductor_id => conductor.id})
+                if(@search.first!=nil)
+                  @search.first.name 
+                else
+                  @search=''
+                end
+            %>
+        </td>
+        <td><%= link_to 'Exibir', conductor %></td>
+        <td><%= link_to 'Editar',edit_conductor_path(conductor) %></td>
+        <td><%= link_to 'Destruir', conductor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Conductor', new_conductor_path %>

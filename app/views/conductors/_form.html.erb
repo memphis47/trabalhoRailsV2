@@ -1,0 +1,29 @@
+ <%= form_for(@conductor) do |f| %>
+  <% if @conductor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@conductor.errors.count, "error") %> prohibited this conductor from being saved:</h2>
+
+      <ul>
+      <% @conductor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <p><strong>Selecione uma das orquestras para relacionar o maestro</strong></p>  
+      <%= collection_select(:orchestas,:id, Orchestra.all, :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
