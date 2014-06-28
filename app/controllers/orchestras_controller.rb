@@ -30,6 +30,12 @@ class OrchestrasController < ApplicationController
     @orchestra = Orchestra.new(orchestra_params)
     
     if(!Orchestra.where(name: @orchestra.name).exists?(conditions = :none))
+      @orcs=Orchestra.where(conductor_id: @orchestra.conductor_id)
+      if(@orcs.first!=nil)
+          
+          @orcs.first.conductor_id=nil
+          @orcs.first.save
+      end
       respond_to do |format|
         if @orchestra.save
           format.html { redirect_to @orchestra, notice: 'Orchestra was successfully created.' }
@@ -51,6 +57,13 @@ class OrchestrasController < ApplicationController
   # PATCH/PUT /orchestras/1
   # PATCH/PUT /orchestras/1.json
   def update
+    
+    @orcs=Orchestra.where(conductor_id:  params[:orchestra][:conductor_id])
+      if(@orcs.first!=nil)
+
+          @orcs.first.conductor_id=nil
+          @orcs.first.save
+      end
     respond_to do |format|
       if @orchestra.update(orchestra_params)
         format.html { redirect_to @orchestra, notice: 'Orchestra was successfully updated.' }

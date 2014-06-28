@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 			@current_user = User.find session[:user_id]
 			return true	
 		else
-			redirect_to(:controller => 'sessions', :action => :instruments)
+			redirect_to(:controller => 'sessions', :action => :session)
 			return false
 		end
 	end
