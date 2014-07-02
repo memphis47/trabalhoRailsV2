@@ -1,6 +1,7 @@
 # encoding: utf-8
 class IntegrantsController < ApplicationController
   before_action :set_integrant, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user, only: [:index,:show]
 
   # GET /integrants
   # GET /integrants.json

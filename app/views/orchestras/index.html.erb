@@ -27,8 +27,10 @@
             %>
         </td>
         <td><%= link_to 'Show', orchestra %></td>
-        <td><%= link_to 'Edit', edit_orchestra_path(orchestra) %></td>
-        <td><%= link_to 'Destroy', orchestra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%if(@current_user.auth=="admin")%>
+          <td><%= link_to 'Edit', edit_orchestra_path(orchestra) %></td>
+          <td><%= link_to 'Destroy', orchestra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

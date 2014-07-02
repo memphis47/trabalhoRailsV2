@@ -1,11 +1,14 @@
 # encoding: utf-8
 class OrchestrasController < ApplicationController
   before_action :set_orchestra, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user, only: [:index,:show]
+
 
   # GET /orchestras
   # GET /orchestras.json
   def index
     @orchestras = Orchestra.all
+    @current_user = User.find session[:user_id]
   end
 
   # GET /orchestras/1

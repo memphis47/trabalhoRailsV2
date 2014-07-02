@@ -1,5 +1,6 @@
 class ConductorsController < ApplicationController
   before_action :set_conductor, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user, only: [:index,:show]
 
   # GET /conductors
   # GET /conductors.json
