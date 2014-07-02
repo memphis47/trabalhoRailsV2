@@ -15,8 +15,10 @@
       <tr>
         <td><%= instrument.name %></td>
         <td><%= link_to 'Show', instrument %></td>
-        <td><%= link_to 'Edit', edit_instrument_path(instrument) %></td>
-        <td><%= link_to 'Destroy', instrument, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%if(@current_user.auth=="admin")%>
+          <td><%= link_to 'Edit', edit_instrument_path(instrument) %></td>
+          <td><%= link_to 'Destroy', instrument, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +26,7 @@
 
 <br>
 
-<%= link_to 'New Instrument', new_instrument_path %>
+<%if(@current_user.auth=="admin")%>
+  
+  <%= link_to 'New Instrument', new_instrument_path %>
+<%end%>

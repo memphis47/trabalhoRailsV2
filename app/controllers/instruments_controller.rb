@@ -6,6 +6,9 @@ class InstrumentsController < ApplicationController
   # GET /instruments.json
   def index
     @instruments = Instrument.all
+    if session[:user_id]
+      @current_user = User.find session[:user_id]
+    end
   end
 
   # GET /instruments/1

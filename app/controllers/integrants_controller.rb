@@ -7,6 +7,9 @@ class IntegrantsController < ApplicationController
   # GET /integrants.json
   def index
     @integrants = Integrant.all
+    if session[:user_id]
+      @current_user = User.find session[:user_id]
+    end
   end
 
   # GET /integrants/1

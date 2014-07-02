@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery
   
   before_action :authenticate_user
+  before_action :verifyUser
   helper_method :current_user  
     
   private  
@@ -17,9 +18,12 @@ class ApplicationController < ActionController::Base
 			# set current user object to @current_user object variable
 			@current_user = User.find session[:user_id]
 			if(@current_user.auth=="admin")
+
 				return true
 			else
+				
 				redirect_to :action =>'index'
+				return false
 			end	
 		else
 			redirect_to :controller => 'sessions', :action => 'new'
@@ -28,10 +32,18 @@ class ApplicationController < ActionController::Base
 	end
 	def save_login_state
 		if session[:user_id]
-			redirect_to(:controller => 'sessions', :action => :orchestra)
+			redirect_to(:controller => 'orchestras', :action => 'index')
 			return false
 		else
 			return true
+		end
+	end
+	def verifyUser
+		if session[:user_id]
+			return true
+		else
+			redirect_to :controller => 'sessions', :action => 'new'
+			return false
 		end
 	end
 end

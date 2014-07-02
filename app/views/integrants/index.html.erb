@@ -33,8 +33,10 @@
             %>
         </td>
         <td><%= link_to 'Show', integrant %></td>
-        <td><%= link_to 'Edit', edit_integrant_path(integrant) %></td>
-        <td><%= link_to 'Destroy', integrant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%if(@current_user.auth=="admin")%>
+          <td><%= link_to 'Edit', edit_integrant_path(integrant) %></td>
+          <td><%= link_to 'Destroy', integrant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +44,8 @@
 
 <br>
 
-<%= link_to 'New Integrant', new_integrant_path %>
+
+<%if(@current_user.auth=="admin")%>
+  
+  <%= link_to 'New Integrant', new_integrant_path %>
+<%end%>

@@ -24,9 +24,11 @@
                 end
             %>
         </td>
-        <td><%= link_to 'Exibir', conductor %></td>
-        <td><%= link_to 'Editar',edit_conductor_path(conductor) %></td>
-        <td><%= link_to 'Destruir', conductor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', integrant %></td>
+        <%if(@current_user.auth=="admin")%>
+          <td><%= link_to 'Edit', edit_integrant_path(integrant) %></td>
+          <td><%= link_to 'Destroy', integrant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +36,6 @@
 
 <br>
 
-<%= link_to 'New Conductor', new_conductor_path %>
+<%if(@current_user.auth=="admin")%>
+  <%= link_to 'New Conductor', new_conductor_path %>
+<%end%>

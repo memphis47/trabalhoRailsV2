@@ -6,7 +6,9 @@ class ConductorsController < ApplicationController
   # GET /conductors.json
   def index
     @conductors = Conductor.all
-
+    if session[:user_id]
+      @current_user = User.find session[:user_id]
+    end
   end
 
   # GET /conductors/1

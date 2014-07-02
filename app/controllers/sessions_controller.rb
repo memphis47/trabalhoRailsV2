@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   before_filter :authenticate_user, :only => [:orchestras, :conductors, :instruments, :integrants, :users]
   before_filter :save_login_state, :only => [:new]
+  before_filter :verifyUser, :only => [:orchestras, :conductors, :instruments, :integrants, :users]
   def new  
   end  
     
