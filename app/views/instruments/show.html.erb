@@ -5,5 +5,5 @@
   <%= @instrument.name %>
 </p>
 
-<%= link_to 'Edit', edit_instrument_path(@instrument) %> |
-<%= link_to 'Back', instruments_path %>
+<%= button_to 'Edit', edit_instrument_path(@instrument), :method =>"get" %> |
+<%= button_to 'Back', instruments_path, :method =>"get" %>

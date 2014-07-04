@@ -6,21 +6,40 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>  
-<body>  
-      <div id="user_nav">  
-      <% if current_user %>  
-        Logged in as <%= current_user.email %>  
-        <%= link_to "Log out", log_out_path %>  
-      <% else %>  
-        <%= link_to "Sign up", sign_up_path %> or   
-        <%= link_to "Log in", log_in_path %>  
-      <% end %>  
-    </div>  
+<body>
+  <div class="menuColor">
+    <nav>
+      <ul class="menu"> 
+        
+        <% if current_user %>  
+          
+         
+          <li><%= link_to "Orchestras", :orchestras %></li>
+          <li><%= link_to "Conductors", :conductors %> </li>
+          <li><%= link_to "Instruments", :instruments %> </li>
+          <li><%= link_to "Integrants", :integrants %> </li>
+          <% if current_user.auth == "admin" %>
+            <li><%= link_to "Users", :users %> </li>
+          <% end %>
+          
+           <li><%= link_to "Log out", log_out_path %> </li>
+           <li class="user"> Logged in as <%= current_user.email %></li>
+        <% else %>  
+          <li><%= link_to "Sign up", sign_up_path %></li>   
+          <li><%= link_to "Log in", log_in_path %>  </li>
+        <% end %>  
+      </ul>
+    </nav>
+</div>
   <% flash.each do |name, msg| %>  
     <%= content_tag :div, msg, :id => "flash#{name}" %>  
-  <% end %>  
-  
-<%= yield %>  
+  <% end %>
+</br>
+<div class="page">
+  <article class="content">
+    <%= yield %>  
+  </article>
+</div>
   
 </body>  
 </html> 

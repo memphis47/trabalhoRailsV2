@@ -6,8 +6,6 @@
       <th>Name</th>
       <th>Age</th>
       <th>Orquestra</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -24,10 +22,10 @@
                 end
             %>
         </td>
-        <td><%= link_to 'Show', integrant %></td>
+        <td><%= button_to 'Show', integrant, :method =>"get" %></td>
         <%if(@current_user.auth=="admin")%>
-          <td><%= link_to 'Edit', edit_integrant_path(integrant) %></td>
-          <td><%= link_to 'Destroy', integrant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= button_to 'Edit', edit_integrant_path(integrant), :method =>"get" %></td>
+          <td><%= button_to 'Destroy', integrant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
       </tr>
     <% end %>
@@ -37,5 +35,5 @@
 <br>
 
 <%if(@current_user.auth=="admin")%>
-  <%= link_to 'New Conductor', new_conductor_path %>
+  <%= button_to 'New Conductor', new_conductor_path, :method =>"get" %>
 <%end%>

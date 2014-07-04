@@ -4,9 +4,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -14,10 +11,10 @@
     <% @instruments.each do |instrument| %>
       <tr>
         <td><%= instrument.name %></td>
-        <td><%= link_to 'Show', instrument %></td>
+        <td><%= button_to 'Show', instrument , :method =>"get" %></td>
         <%if(@current_user.auth=="admin")%>
-          <td><%= link_to 'Edit', edit_instrument_path(instrument) %></td>
-          <td><%= link_to 'Destroy', instrument, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= button_to 'Edit', edit_instrument_path(instrument) , :method =>"get"%></td>
+          <td><%= button_to 'Destroy', instrument, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
       </tr>
     <% end %>
@@ -28,5 +25,5 @@
 
 <%if(@current_user.auth=="admin")%>
   
-  <%= link_to 'New Instrument', new_instrument_path %>
+  <%= button_to 'New Instrument', new_instrument_path , :method =>"get"%>
 <%end%>

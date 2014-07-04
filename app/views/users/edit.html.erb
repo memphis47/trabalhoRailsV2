@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= button_to 'Show', @user, :method =>"get" %> |
+<%= button_to 'Back', users_path, :method =>"get" %>

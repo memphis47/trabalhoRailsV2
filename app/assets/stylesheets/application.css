@@ -13,3 +13,100 @@
  *= require_tree .
  *= require_self
  */
+
+.menu {
+	margin: -0.5%; 
+	padding:0.5%; 
+	width:100%;
+	 background: -webkit-linear-gradient( rgba(44, 62, 80,0.8) 33% ,rgba(52, 73, 94,0.8) 33%,rgba(70, 94, 118,0.8) 33% ); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient( rgba(44, 62, 80,0.8) 33% ,rgba(52, 73, 94,0.8) 33%,rgba(70, 94, 118,0.8) 33%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient( rgba(44, 62, 80,0.8) 33% ,rgba(52, 73, 94,0.8) 33%,rgba(70, 94, 118,0.8) 33%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgba(44, 62, 80,0.8) 33% ,rgba(52, 73, 94,0.8) 33%,rgba(70, 94, 118,0.8) 33%); /* Standard syntax (must be last) */
+	/*background:rgba(0,0,82,0.6);*/
+}
+
+li.user{
+	margin-left:40%;
+	color:rgb(290, 186, 94);
+}
+
+.menu{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 16px;
+	list-style:none;
+	float:left;
+
+	text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+
+.menu li{
+	position:center;
+	float:left;
+}
+
+.menu li a{
+	color:rgb(290, 186, 94); 
+	text-decoration:none; 
+	padding:5px 10px; 
+	display:block;
+}
+ 
+.menu li a:hover{
+	background:rgba(26, 188, 156,0.6);
+	color:rgb(290, 186, 94);
+	-moz-box-shadow:0 3px 10px 0 #CCC;
+	-webkit-box-shadow:0 3px 10px 0 #ccc;
+}
+
+
+.page{
+	margin-top:2%;
+}
+
+.content{
+	width:90%;
+	height:40%;
+	margin-left:1%;
+	margin-top: 5%;
+	color:rgb(290, 186, 94);
+	text-shadow: 0.1em 0.1em 0.2em black;
+	-moz-box-shadow:0 3px 10px 0 #CCC;
+	-webkit-box-shadow:0 3px 10px 0 #ccc;
+	background: -webkit-radial-gradient(white,gray); /* Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(white,gray); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(white,gray); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(white,gray); /* Standard syntax (must be last) */
+	border-radius:2em;
+}
+
+body{
+	background-image:url('../images/fundo.jpg');
+}
+
+.loadedPage{
+	margin:5%;
+}
+
+
+table,th,td{
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+th{
+	background: rgba(155, 89, 182,0.6);
+}
+
+
+td.um{
+	background:rgba(189, 195, 199,0.6);
+}
+
+td.dois{
+	background: rgba(149, 165, 166,0.6);
+}
+
+td.tres{
+	background: rgba(236, 240, 241,0.6);
+}

@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @instrument %> |
-<%= link_to 'Back', instruments_path %>
+<%= button_to 'Show', @instrument, :method =>"get" %> |
+<%= button_to 'Back', instruments_path, :method =>"get" %>

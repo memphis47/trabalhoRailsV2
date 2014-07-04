@@ -1,6 +1,8 @@
-<h1>Editing orchestra</h1>
+<div class="loadedPage">
+	<h1>Editing orchestra</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'Show', @orchestra %> |
-<%= link_to 'Back', orchestras_path %>
+	<%= button_to 'Show', @orchestra, :method =>"get" %> 
+	<%= button_to 'Back', orchestras_path, :method =>"get" %>
+</div>

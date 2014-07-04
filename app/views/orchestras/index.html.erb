@@ -1,43 +1,41 @@
+<div class="loadedPage">
+  <h1>Listing orchestras</h1>
 
-<h1>Listing orchestras</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>City</th>
-      <th>Conductor</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orchestras.each do |orchestra| %>
+  <table class="tableStyle">
+    <thead>
       <tr>
-        <td><%= orchestra.name %></td>
-        <td><%= orchestra.city %></td>
-        <td><%= @search = Conductor.find(:all,:conditions => {:id => orchestra.conductor_id})
-                if(@search.first!=nil)
-                  @search.first.name 
-                else
-                  @search=''
-                end
-            %>
-        </td>
-        <td><%= link_to 'Show', orchestra %></td>
-        <%if(@current_user.auth=="admin")%>
-          <td><%= link_to 'Edit', edit_orchestra_path(orchestra) %></td>
-          <td><%= link_to 'Destroy', orchestra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
+        <th>Name</th>
+        <th>City</th>
+        <th>Conductor</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @orchestras.each do |orchestra| %>
+        <tr>
+          <td class="um"><%= orchestra.name %></td>
+          <td class="dois"><%= orchestra.city %></td>
+          <td class="tres"><%= @search = Conductor.find(:all,:conditions => {:id => orchestra.conductor_id})
+                  if(@search.first!=nil)
+                    @search.first.name 
+                  else
+                    @search=''
+                  end
+              %>
+          </td>
+          <td class="um"><%= button_to 'Show', orchestra, :method=>"get" %></td>
+          <%if(@current_user.auth=="admin")%>
+            <td class="dois"><%= button_to 'Edit', edit_orchestra_path(orchestra), :method =>"get" %></td>
+            <td class="tres"><%= button_to 'Destroy', orchestra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end%>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%if(@current_user.auth=="admin")%>
-  <%= link_to 'New Orchestra', new_orchestra_path %>
-<%end%>
+  <br>
+
+  <%if(@current_user.auth=="admin")%>
+    <%= button_to 'New Orchestra', new_orchestra_path, :method =>"get" %>
+  <%end%>
+</div>

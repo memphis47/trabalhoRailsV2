@@ -4,8 +4,13 @@ TrabalhoBruno::Application.routes.draw do
   get "sessions/new"
   get "log_in" => "sessions#new", :as => "log_in"  
   get "log_out" => "sessions#destroy", :as => "log_out"  
-  
-  get "sign_up" => "users#new", :as => "sign_up"  
+  #get "orchestras"=> "orchestras#index" :as => "orchestras"
+  #get "conductors"=> "conductors#index" :as => "conductors"
+  #get "instruments"=> "instruments#index" :as => "instruments"
+  #get "integrants"=> "integrants#index" :as => "integrants"
+  #get "users"=> "users#index" :as => "users"
+  get "sign_up" => "users#new", :as => "sign_up"
+
   root :to => "sessions#new"  
   resources :users  
   resources :sessions

@@ -28,5 +28,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_integrant_path(@integrant) %> |
-<%= link_to 'Back', integrants_path %>
+<%= button_to 'Edit', edit_integrant_path(@integrant), :method =>"get" %> |
+<%= button_to 'Back', integrants_path, :method =>"get" %>
