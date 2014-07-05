@@ -14,25 +14,24 @@
  *= require_self
  */
 
+
+
 .menu {
-	margin: -0.5%; 
-	padding:0.5%; 
+	margin: -0.8%; 
+	padding:0.7%; 
 	width:100%;
-	 background: -webkit-linear-gradient( rgba(44, 62, 80,0.8) 33% ,rgba(52, 73, 94,0.8) 33%,rgba(70, 94, 118,0.8) 33% ); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient( rgba(44, 62, 80,0.8) 33% ,rgba(52, 73, 94,0.8) 33%,rgba(70, 94, 118,0.8) 33%); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient( rgba(44, 62, 80,0.8) 33% ,rgba(52, 73, 94,0.8) 33%,rgba(70, 94, 118,0.8) 33%); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(rgba(44, 62, 80,0.8) 33% ,rgba(52, 73, 94,0.8) 33%,rgba(70, 94, 118,0.8) 33%); /* Standard syntax (must be last) */
+    background:rgb(24, 42, 60);
 	/*background:rgba(0,0,82,0.6);*/
 }
 
 li.user{
-	margin-left:40%;
+	margin-left:10%;
 	color:rgb(290, 186, 94);
 }
 
 .menu{
 	font-family: arial, helvetica, sans-serif;
-	font-size: 16px;
+	font-size: 18px;
 	list-style:none;
 	float:left;
 
@@ -41,8 +40,19 @@ li.user{
 
 
 .menu li{
+	
 	position:center;
 	float:left;
+}
+
+.options{
+	border-right:1px solid rgb(290, 186, 94);
+	
+}
+
+.nota{
+	margin:0 10px 0 0;
+	border-right:2px solid rgb(41, 128, 185);
 }
 
 .menu li a{
@@ -53,31 +63,48 @@ li.user{
 }
  
 .menu li a:hover{
-	background:rgba(26, 188, 156,0.6);
+	background:rgb(52, 73, 94);
 	color:rgb(290, 186, 94);
-	-moz-box-shadow:0 3px 10px 0 #CCC;
-	-webkit-box-shadow:0 3px 10px 0 #ccc;
+	box-shadow:0 3px 10px 0 rgb(41, 128, 185);
 }
 
 
-.page{
-	margin-top:2%;
-}
 
 .content{
+	width:95%;
+	height:88%;
+	margin-left:2%;
+	margin-top: 2%;
+	color:rgb(44, 62, 80);
+	text-shadow: 0.1em 0.1em 0.2em black;
+	box-shadow:0 3px 10px 0 #000;
+	
+	background: #E6E6E6 ;
+    -ms-transform: rotate(2deg); /* IE 9 */
+    -webkit-transform: rotate(2deg); /* Chrome, Safari, Opera */
+    transform: rotate(2deg)
+}
+
+.outside{
+	position: absolute;
+	width:90%;
+	height:70%;
+	margin-left:4%;
+	margin-top: 5%;
+	background: rgb(241, 196, 15); /* Standard syntax (must be last) */
+    -ms-transform: rotate(-2deg); /* IE 9 */
+    -webkit-transform: rotate(-2deg); /* Chrome, Safari, Opera */
+    transform: rotate(-2deg)
+}
+
+.inside{
+	position: fixed;
 	width:90%;
 	height:40%;
 	margin-left:1%;
-	margin-top: 5%;
+	margin-top: -1%;
 	color:rgb(290, 186, 94);
-	text-shadow: 0.1em 0.1em 0.2em black;
-	-moz-box-shadow:0 3px 10px 0 #CCC;
-	-webkit-box-shadow:0 3px 10px 0 #ccc;
-	background: -webkit-radial-gradient(white,gray); /* Safari 5.1 to 6.0 */
-    background: -o-radial-gradient(white,gray); /* For Opera 11.6 to 12.0 */
-    background: -moz-radial-gradient(white,gray); /* For Firefox 3.6 to 15 */
-    background: radial-gradient(white,gray); /* Standard syntax (must be last) */
-	border-radius:2em;
+    
 }
 
 body{
@@ -91,22 +118,31 @@ body{
 
 table,th,td{
 	border-collapse: collapse;
-	border: 1px solid black;
+	border: 10px solid #E6E6E6;
 }
 
 th{
-	background: rgba(155, 89, 182,0.6);
+	background:rgb(24, 42, 60);
+	height: 40px;
+	width: 60px;
 }
 
-
 td.um{
-	background:rgba(189, 195, 199,0.6);
+	background:rgb(241, 196, 15);
 }
 
 td.dois{
 	background: rgba(149, 165, 166,0.6);
 }
 
-td.tres{
-	background: rgba(236, 240, 241,0.6);
+.botao{
+	border-radius: 1px;
+}
+
+h1{
+	color:rgb(44, 62, 80);
+}
+
+.button{
+	border-radius:5px;
 }

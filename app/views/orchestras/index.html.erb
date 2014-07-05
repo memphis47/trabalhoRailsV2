@@ -15,7 +15,7 @@
         <tr>
           <td class="um"><%= orchestra.name %></td>
           <td class="dois"><%= orchestra.city %></td>
-          <td class="tres"><%= @search = Conductor.find(:all,:conditions => {:id => orchestra.conductor_id})
+          <td class="dois"><%= @search = Conductor.find(:all,:conditions => {:id => orchestra.conductor_id})
                   if(@search.first!=nil)
                     @search.first.name 
                   else
@@ -23,10 +23,10 @@
                   end
               %>
           </td>
-          <td class="um"><%= button_to 'Show', orchestra, :method=>"get" %></td>
+          <td class="botao"><%= button_to 'Show', orchestra,:class => "button", :method=>"get"  %></td>
           <%if(@current_user.auth=="admin")%>
-            <td class="dois"><%= button_to 'Edit', edit_orchestra_path(orchestra), :method =>"get" %></td>
-            <td class="tres"><%= button_to 'Destroy', orchestra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td class="botao"><%= button_to 'Edit', edit_orchestra_path(orchestra),:class => "button", :method =>"get" %></td>
+            <td class="botao"><%= button_to 'Destroy', orchestra,:class => "button", method: :delete, data: { confirm: 'Are you sure?' }  %></td>
           <%end%>
         </tr>
       <% end %>
@@ -36,6 +36,6 @@
   <br>
 
   <%if(@current_user.auth=="admin")%>
-    <%= button_to 'New Orchestra', new_orchestra_path, :method =>"get" %>
+    <%= button_to 'New Orchestra', new_orchestra_path,:class => "button", :method =>"get"  %>
   <%end%>
 </div>
