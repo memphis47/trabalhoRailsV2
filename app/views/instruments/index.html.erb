@@ -10,11 +10,11 @@
   <tbody>
     <% @instruments.each do |instrument| %>
       <tr>
-        <td><%= instrument.name %></td>
-        <td><%= button_to 'Show', instrument , :method =>"get" %></td>
+        <td  class="um"><%= instrument.name %></td>
+        <td  class="botao"><%= button_to 'Show', instrument,:class => "button" , :method =>"get" %></td>
         <%if(@current_user.auth=="admin")%>
-          <td><%= button_to 'Edit', edit_instrument_path(instrument) , :method =>"get"%></td>
-          <td><%= button_to 'Destroy', instrument, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td  class="botao"><%= button_to 'Edit', edit_instrument_path(instrument),:class => "button" , :method =>"get"%></td>
+          <td  class="botao"><%= button_to 'Destroy', instrument,:class => "button", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
       </tr>
     <% end %>
@@ -25,5 +25,5 @@
 
 <%if(@current_user.auth=="admin")%>
   
-  <%= button_to 'New Instrument', new_instrument_path , :method =>"get"%>
+  <%= button_to 'New Instrument', new_instrument_path ,:class => "button", :method =>"get"%>
 <%end%>

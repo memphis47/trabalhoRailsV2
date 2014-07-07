@@ -1,6 +1,17 @@
-<h1>Editing integrant</h1>
+<div class="loadedPage">
+	<h1>Editing integrant</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= button_to 'Show', @integrant, :method =>"get" %> |
-<%= button_to 'Back', integrants_path, :method =>"get" %>
+				<li>
+		          	<li>
+						<%= button_to 'Show', @integrant, :method =>"get" ,:class=>"button"%> 
+					</li>
+					<li>
+						<%= button_to 'Back', integrants_path, :method =>"get",:class=>"button" %>
+					</li>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>

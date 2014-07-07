@@ -19,7 +19,7 @@
               <%= link_to "Orchestras", :orchestras %>
             </li>
             <li class="nota">
-              <img src="../images/nota1.png" alt="nota1" width="35" height="35">
+              <%= image_tag 'nota1.png', size: '35', alt: 'nota1' %>
             </li>
           </li>
           <li class="options">
@@ -27,7 +27,7 @@
               <%= link_to "Conductors", :conductors %> 
             </li>
             <li class="nota">
-              <img src="../images/nota2.png" alt="nota1" width="35" height="35">
+              <%= image_tag 'nota2.png', size: '35', alt: 'nota2' %>
             </li>
           </li>
           <li class="options">
@@ -35,7 +35,7 @@
               <%= link_to "Instruments", :instruments %> 
             </li>
             <li class="nota">
-              <img src="../images/nota3.png" alt="nota1" width="35" height="35">
+              <%= image_tag 'nota3.png', size: '35', alt: 'nota3' %>
             </li>
           </li>
           <li class="options">
@@ -43,7 +43,7 @@
               <%= link_to "Integrants", :integrants %> 
             </li>
             <li class="nota">
-              <img src="../images/nota4.png" alt="nota1" width="35" height="35">
+              <%= image_tag 'nota4.png', size: '35', alt: 'nota4' %>
             </li>
           </li>
           <% if current_user.auth == "admin" %>
@@ -52,7 +52,7 @@
                 <%= link_to "Users", :users %>
               </li>
               <li class="nota">
-                <img src="../images/nota5.png" alt="nota1" width="35" height="35">
+                <%= image_tag 'nota5.png', size: '35', alt: 'nota5' %>
               </li>
             </li>
           <% end %>
@@ -62,7 +62,7 @@
               <%= link_to "Log out", log_out_path %> </li>
             </li>
             <li class="nota">
-              <img src="../images/logout.png" alt="nota1" width="35" height="35">
+              <%= image_tag 'logout.png', size: '35', alt: 'nota6' %>
             </li>
            <li class="user"> Logged in as <%= current_user.email %></li>
         <% else %>  

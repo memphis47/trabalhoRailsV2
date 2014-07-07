@@ -1,32 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="loadedPage">
 
-<p>
-  <strong>Nome:</strong>
-  <%= @integrant.nome %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Orchestra:</strong>
-  <%= 	@search = Orchestra.find(:all,:conditions => {:id => @integrant.orchestra_id})
-  		if(@search.first!=nil)
-            @search.first.name
-        else
-        	@search=''
-        end
-    %>
-</p>
+  <h1>Showing Integrant <%= @integrant.nome %> </h1>
+    
+    <div class="showPage">
+      <nav>
+        <ul class="show"> 
+          <li>
+            <p>
+              <strong>Nome:</strong>
+              <%= @integrant.nome %>
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Orchestra:</strong>
+              <%= 	@search = Orchestra.find(:all,:conditions => {:id => @integrant.orchestra_id})
+              		if(@search.first!=nil)
+                        @search.first.name
+                    else
+                    	@search=''
+                    end
+                %>
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Instrument:</strong>
+              <%=   @search = Instrument.find(:all,:conditions => {:id => @integrant.instrument_id})
+                  if(@search.first!=nil)
+                        @search.first.name
+                    else
+                      @search=''
+                    end
+                %>
+            </p>
+          </li>
+          </ul>
+      </nav>
+    </div>  
+    <div class="showButtons">
+      <nav>
+        <ul class="menu"> 
+          <li>
+            <li>
+              <%= button_to 'Edit', edit_integrant_path(@integrant),:class =>"button", :method =>"get" %>
+            </li>
+            <li>
+              <%= button_to 'Back', integrants_path,:class =>"button", :method =>"get" %>
+            </li>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</div>
 
-<p>
-  <strong>Instrument:</strong>
-  <%= 	@search = Instrument.find(:all,:conditions => {:id => @integrant.instrument_id})
-  		if(@search.first!=nil)
-            @search.first.name
-        else
-        	@search=''
-        end
-    %>
-</p>
-
-
-<%= button_to 'Edit', edit_integrant_path(@integrant), :method =>"get" %> |
-<%= button_to 'Back', integrants_path, :method =>"get" %>

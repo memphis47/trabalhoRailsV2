@@ -1,6 +1,17 @@
-<h1>Editing instrument</h1>
+<div class="loadedPage">
+	<h1>Editing instrument</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= button_to 'Show', @instrument, :method =>"get" %> |
-<%= button_to 'Back', instruments_path, :method =>"get" %>
+				<li>
+		          	<li>
+						<%= button_to 'Show', @instrument, :method =>"get" ,:class=>"button"%> 
+					</li>
+					<li>
+						<%= button_to 'Back', instruments_path, :method =>"get",:class=>"button" %>
+					</li>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>

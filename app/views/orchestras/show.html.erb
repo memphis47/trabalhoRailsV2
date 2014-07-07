@@ -1,58 +1,78 @@
 <div class="loadedPage">
   <p id="notice"><%= notice %></p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= @orchestra.name %>
-  </p>
-
-  <p>
-    <strong>City:</strong>
-    <%= @orchestra.city %>
-  </p>
-
-  <p>
-    <strong>Conductor:</strong>
-    <%= @search = Conductor.find(:all,:conditions => {:id => @orchestra.conductor_id})
-    			if(@search.first!=nil)
-                  @search.first.name 
-              else
-              	@search=''
-              end
-      %>
-  </p>
-
-  <p>
-    <strong>Integrants:</strong>
-    
-  </p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Instrument</th>
-      </tr>
-    </thead>
-    <tbody>
-  	<% @search = Integrant.find(:all,:conditions => {:orchestra_id => @orchestra.id})%>
-  		<% if(@search.first!=nil) %>
-  			<% @search.each do |element| %>
-  				<tr>
-  	  				<td><%= element.nome %></td>
-  	  				<% @instr=Instrument.find(:all,:conditions => {:id => element.instrument_id})%>
-  	  				<% if(@instr.first!=nil) %>
-  	  					<td><%= @instr.first.name %></td>
-  	  				<% else %>
-  	  					<td> </td>
-  	  				<%end%>
-  	  			</tr>
-  			<% end %>
-  	    <% else %>
-  	    	<%=@search=''%>
-  	    <% end %>
-  	</tbody>
-  </table>
-  <p>
-  <%= button_to 'Edit', edit_orchestra_path(@orchestra), :method =>"get" %>
-  <%= button_to 'Back', orchestras_path, :method =>"get" %></p>
+  <h1>Showing Orchestra <%= @orchestra.name %> </h1>
+  
+  <div class="showPage">
+    <nav>
+      <ul class="show"> 
+        <li>
+          <p>
+            <strong>Name:</strong>
+            <%= @orchestra.name %>
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>City:</strong>
+            <%= @orchestra.city %>
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Conductor:</strong>
+            <%= @search = Conductor.find(:all,:conditions => {:id => @orchestra.conductor_id})
+            			if(@search.first!=nil)
+                          @search.first.name 
+                      else
+                      	@search=''
+                      end
+              %>
+          </p>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="integrant">
+    <h2>Integrants</h2>
+    <table class="tableShow">
+      <thead>
+        <tr>
+          <th class="headerShow">Name</th>
+          <th class="headerShow">Instrument</th>
+        </tr>
+      </thead>
+      <tbody>
+    	<% @search = Integrant.find(:all,:conditions => {:orchestra_id => @orchestra.id})%>
+    		<% if(@search.first!=nil) %>
+    			<% @search.each do |element| %>
+    				<tr>
+    	  				<td class="cellShow1"><%= element.nome %></td>
+    	  				<% @instr=Instrument.find(:all,:conditions => {:id => element.instrument_id})%>
+    	  				<% if(@instr.first!=nil) %>
+    	  					<td class="cellShow2"><%= @instr.first.name %></td>
+    	  				<% else %>
+    	  					<td class="cellShow2"> </td>
+    	  				<%end%>
+    	  			</tr>
+    			<% end %>
+    	    <% else %>
+    	    	<%=@search=''%>
+    	    <% end %>
+    	</tbody>
+    </table>
+  </div>
+  <div class="showButtons">
+    <nav>
+      <ul class="menu"> 
+        <li>
+          <li>
+            <%= button_to 'Edit', edit_orchestra_path(@orchestra),:class =>"button", :method =>"get" %>
+          </li>
+          <li>
+            <%= button_to 'Back', orchestras_path,:class =>"button", :method =>"get" %>
+          </li>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>

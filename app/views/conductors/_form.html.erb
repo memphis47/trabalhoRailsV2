@@ -10,20 +10,39 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="editPage">
+      <nav>
+        <ul class="show"> 
+          <li>
+            <div class="field">
+              <%= f.label :name %><br>
+              <%= f.text_field :name,:class=>"textField"%>
+            </div>
+          </li>
+          <li>
+            <div class="field">
+              <%= f.label :age %><br>
+              <%= f.number_field :age,:class=>"textField" %>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  <br/>
+  <br/>
+  <br/>
+  <div class="conductors">
+    <div class="text">
+      <p><strong>Selecione uma das orquestras para relacionar o maestro</strong></p>  
+        <%= collection_select(:orchestas,:id, Orchestra.all, :id, :name) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
-  </div>
-  <div class="field">
-    <p><strong>Selecione uma das orquestras para relacionar o maestro</strong></p>  
-      <%= collection_select(:orchestas,:id, Orchestra.all, :id, :name) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <br/>
+    <br/>
+     <div class="showButton">
+      <nav>
+        <ul class="menu"> 
+          <li>
+            <%= f.submit 'Save' ,:class =>'button'%>
+          </li>
 <% end %>

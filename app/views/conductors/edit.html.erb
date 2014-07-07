@@ -1,6 +1,16 @@
-<h1>Editing conductor</h1>
+<div class="loadedPage">
+	<h1>Editing Conductor</h1>
 
-<%= render 'form' %>
-
-<%= button_to 'Show', @conductor, :method =>"get" %> |
-<%= button_to 'Back', conductors_path, :method =>"get" %>
+	<%= render 'form' %>
+	        	<li>
+		          	<li>
+						<%= button_to 'Show', @conductor, :method =>"get" ,:class=>"button"%> 
+					</li>
+					<li>
+						<%= button_to 'Back', conductors_path, :method =>"get",:class=>"button" %>
+					</li>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>

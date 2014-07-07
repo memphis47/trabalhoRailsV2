@@ -10,22 +10,45 @@
       </ul>
     </div>
   <% end %>
+  <div class="editPage">
+      <nav>
+        <ul class="show"> 
+          <li>
+            <div class="field">
+              <%= f.label :nome %><br>
+              <%= f.text_field :nome ,:class=>"textField"%>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div class="conductors">
+            <div class="text">
+              <p><strong>Selecione uma das orquestras para relacionar o integrante :</strong></p>  
+                <% options = options_from_collection_for_select(@orchestra, 'id', 'name') %>
+                <%= f.select :orchestra_id,  options %>
+            </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div class="conductors">
+            <div class="text">
+              <p><strong>Selecione um instrumento para o integrante :</strong></p> 
+              <% options = options_from_collection_for_select(@instrument, 'id', 'name') %>
+              <%= f.select :instrument_id,  options %>
+            </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
-  </div>
-  <div class="field">
-    <p><strong>Selecione uma das orquestras para relacionar o integrante :</strong></p>  
-      <% options = options_from_collection_for_select(@orchestra, 'id', 'name') %>
-      <%= f.select :orchestra_id,  options %>
-  </div>
-  <div class="field">
-    <p><strong>Selecione um instrumento para o integrante :</strong></p> 
-    <% options = options_from_collection_for_select(@instrument, 'id', 'name') %>
-    <%= f.select :instrument_id,  options %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <br/>
+  <br/>
+     <div class="showButton">
+      <nav>
+        <ul class="menu"> 
+          <li>
+            <%= f.submit 'Save' ,:class =>'button'%>
+          </li>
 <% end %>

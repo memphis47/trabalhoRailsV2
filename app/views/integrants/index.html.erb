@@ -12,8 +12,8 @@
   <tbody>
     <% @integrants.each do |integrant| %>
       <tr>
-        <td><%= integrant.nome %></td>
-        <td><%= @search = Orchestra.find(:all,:conditions => {:id => integrant.orchestra_id})
+        <td class="um"><%= integrant.nome %></td>
+        <td class="dois"><%= @search = Orchestra.find(:all,:conditions => {:id => integrant.orchestra_id})
                 if(@search.first!=nil)
                   @search.first.name 
                 else
@@ -21,7 +21,7 @@
                 end
             %>
         </td>
-        <td><%= @search = Instrument.find(:all,:conditions => {:id => integrant.instrument_id})
+        <td class="dois"><%= @search = Instrument.find(:all,:conditions => {:id => integrant.instrument_id})
                 if(@search.first!=nil)
                   @search.first.name 
                 else
@@ -29,10 +29,10 @@
                 end
             %>
         </td>
-        <td><%= button_to 'Show', integrant , :method =>"get"%></td>
+        <td class="botao"><%= button_to 'Show', integrant , :method =>"get",:class=>"button"%></td>
         <%if(@current_user.auth=="admin")%>
-          <td><%= button_to 'Edit', edit_integrant_path(integrant) , :method =>"get"%></td>
-          <td><%= button_to 'Destroy', integrant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="botao"><%= button_to 'Edit', edit_integrant_path(integrant) , :method =>"get",:class => "button"%></td>
+          <td class="botao"><%= button_to 'Destroy', integrant, method: :delete, data: { confirm: 'Are you sure?' },:class => "button" %></td>
         <%end%>
       </tr>
     <% end %>
@@ -44,5 +44,5 @@
 
 <%if(@current_user.auth=="admin")%>
   
-  <%= button_to 'New Integrant', new_integrant_path , :method =>"get"%>
+  <%= button_to 'New Integrant', new_integrant_path , :method =>"get",:class => "button"%>
 <%end%>

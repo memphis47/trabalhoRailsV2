@@ -12,9 +12,9 @@
   <tbody>
     <% @conductors.each do |conductor| %>
       <tr>
-        <td><%= conductor.name %></td>
-        <td><%= conductor.age %></td>
-        <td><%= @search = Orchestra.find(:all,:conditions => {:conductor_id => conductor.id})
+        <td class="um"><%= conductor.name %></td>
+        <td class="dois"><%= conductor.age %></td>
+        <td class="dois"><%= @search = Orchestra.find(:all,:conditions => {:conductor_id => conductor.id})
                 if(@search.first!=nil)
                   @search.first.name 
                 else
@@ -22,10 +22,10 @@
                 end
             %>
         </td>
-        <td><%= button_to 'Show', integrant, :method =>"get" %></td>
+        <td class="botao"><%= button_to 'Show', conductor,:class => "button",:method =>"get" %></td>
         <%if(@current_user.auth=="admin")%>
-          <td><%= button_to 'Edit', edit_integrant_path(integrant), :method =>"get" %></td>
-          <td><%= button_to 'Destroy', integrant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="botao"><%= button_to 'Edit', edit_conductor_path(conductor),:class => "button", :method =>"get" %></td>
+          <td class="botao"><%= button_to 'Destroy', conductor,:class => "button", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
       </tr>
     <% end %>
@@ -35,5 +35,5 @@
 <br>
 
 <%if(@current_user.auth=="admin")%>
-  <%= button_to 'New Conductor', new_conductor_path, :method =>"get" %>
+  <%= button_to 'New Conductor', new_conductor_path, :method =>"get",:class => "button" %>
 <%end%>

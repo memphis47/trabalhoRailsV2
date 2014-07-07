@@ -2,7 +2,15 @@
 	<h1>Editing orchestra</h1>
 
 	<%= render 'form' %>
-
-	<%= button_to 'Show', @orchestra, :method =>"get" %> 
-	<%= button_to 'Back', orchestras_path, :method =>"get" %>
+	        	<li>
+		          	<li>
+						<%= button_to 'Show', @orchestra, :method =>"get" ,:class=>"button"%> 
+					</li>
+					<li>
+						<%= button_to 'Back', orchestras_path, :method =>"get",:class=>"button" %>
+					</li>
+				</li>
+			</ul>
+		</nav>
+	</div>
 </div>

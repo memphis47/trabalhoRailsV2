@@ -1,8 +1,17 @@
 class UsersController < ApplicationController  
-   skip_before_action :authenticate_user, only: [:index]
   def new  
     @user = User.new  
   end  
+
+  # GET /orchestras/1
+  # GET /orchestras/1.json
+  def show
+  end
+
+  # GET /orchestras/1/edit
+  def edit
+    @user = User.all
+  end
 
   def index
     @users = User.all

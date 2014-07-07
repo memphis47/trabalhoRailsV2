@@ -1,9 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @instrument.name %>
-</p>
-
-<%= button_to 'Edit', edit_instrument_path(@instrument), :method =>"get" %> |
-<%= button_to 'Back', instruments_path, :method =>"get" %>
+<div class="loadedPage">
+	<p id="notice"><%= notice %></p>
+	<h1>Showing instrument <%= @instrument.name %></h1>
+	<div class="showPage">
+	    <nav>
+	    	<ul class="show"> 
+	      		<li>
+					<p>
+				  		<strong>Name:</strong>
+				  		<%= @instrument.name %>
+					</p>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<div class="showButtons">
+	    <nav>
+		    <ul class="menu"> 
+		        <li>
+		        	<li>
+						<%= button_to 'Edit', edit_instrument_path(@instrument),:class=>"button", :method =>"get" %>
+					</li>
+					<li>
+						<%= button_to 'Back', instruments_path,:class=>"button", :method =>"get" %>
+					</li>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>

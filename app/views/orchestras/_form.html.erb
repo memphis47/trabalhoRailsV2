@@ -1,32 +1,51 @@
 
 
-<%= form_for(@orchestra) do |f| %>
-  <% if @orchestra.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@orchestra.errors.count, "error") %> prohibited this orchestra from being saved:</h2>
+  <%= form_for(@orchestra) do |f| %>
+    <% if @orchestra.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@orchestra.errors.count, "error") %> prohibited this orchestra from being saved:</h2>
 
-      <ul>
-      <% @orchestra.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @orchestra.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="editPage">
+      <nav>
+        <ul class="show"> 
+          <li>
+            <div class="field">
+              <%= f.label :name,:class=>"title"  %><br>
+              <%= f.text_field :name ,:class=>"textField"%>
+            </div>
+          </li>
+          <li>
+            <div class="field">
+              <%= f.label :city,:class=>"title" %><br>
+              <%= f.text_field :city,:class=>"textField"%>
+            </div>
+          </li>
+        </ul>
+      </nav>
     </div>
+    <br/>
+    <br/>
+    <br/>
+    <div class="conductors">
+            <div class="text">
+              <p><strong>Selecione um dos maestros para relacionar com a Orquestra</strong></p>
+              <% options = options_from_collection_for_select(@conductor, 'id', 'name') %>
+              <%= f.select :conductor_id,  options %>
+            </div>
+    </div>
+    <br/>
+    <br/>
+     <div class="showButton">
+      <nav>
+        <ul class="menu"> 
+          <li>
+            <%= f.submit 'Save' ,:class =>'button'%>
+          </li>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <p><strong>Selecione um dos maestros para relacionar com a Orquestra</strong></p>
-    <% options = options_from_collection_for_select(@conductor, 'id', 'name') %>
-    <%= f.select :conductor_id,  options %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

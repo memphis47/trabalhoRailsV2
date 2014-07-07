@@ -1,25 +1,48 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @conductor.name %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @conductor.age %>
-</p>
-
-<p>
-  <strong>Orchestra:</strong>
-  <%= 	@search = Orchestra.find(:all,:conditions => {:conductor_id => @conductor.id})
-  		if(@search.first!=nil)
-            @search.first.name
-        else
-        	@search=''
-        end
-    %>
-</p>
-
-<%= button_to 'Edit', edit_conductor_path(@conductor), :method =>"get" %> |
-<%= button_to 'Back', conductors_path, :method =>"get" %>
+<div class="loadedPage">
+  <p id="notice"><%= notice %></p>
+  <h1>Showing Orchestra <%= @conductor.name %> </h1>
+  <div class="showPage">
+    <nav>
+      <ul class="show"> 
+        <li>
+          <p>
+            <strong>Name:</strong>
+            <%= @conductor.name %>
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Age:</strong>
+            <%= @conductor.age %>
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Orchestra:</strong>
+            <%= 	@search = Orchestra.find(:all,:conditions => {:conductor_id => @conductor.id})
+            		if(@search.first!=nil)
+                      @search.first.name
+                  else
+                  	@search=''
+                  end
+              %>
+          </p>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="showButtons">
+    <nav>
+      <ul class="menu"> 
+        <li>
+          <li>
+            <%= button_to 'Edit', edit_conductor_path(@conductor),:class =>"button", :method =>"get" %>
+          </li>
+          <li>
+            <%= button_to 'Back', conductors_path,:class =>"button", :method =>"get" %>
+          </li>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

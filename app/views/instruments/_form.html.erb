@@ -10,12 +10,27 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="editPage">
+      <nav>
+        <ul class="show"> 
+          <li>
+            <div class="field">
+              <%= f.label :name %><br>
+              <%= f.text_field :name ,:class=>"textField"%>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+     <div class="showButton">
+      <nav>
+        <ul class="menu"> 
+          <li>
+            <%= f.submit 'Save' ,:class =>'button'%>
+          </li>
 <% end %>

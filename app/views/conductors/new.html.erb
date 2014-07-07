@@ -1,5 +1,15 @@
-<h1>New conductor</h1>
+<div class="loadedPage">
+	<h1>New Conductor</h1>
 
-<%= render 'form' %>
+	<p id="notice"><%= notice %></p>
 
-<%= button_to 'Back', conductors_path, :method =>"get" %>
+
+	<%= render 'form' %>
+					<li>
+						<%= button_to 'Back', conductors_path, :method =>"get",:class=>"button" %>
+					</li>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
